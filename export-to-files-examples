@@ -1,0 +1,47 @@
+# examples of saving output
+# basic boxplot, descriptive stats examples
+
+# Rebeca Carrillo-Clayton | rc@rcclayton.com
+
+# Boxplot - saved as pdf in working directory
+# Descriptive Stats - saved as text 
+
+# Sea Monkey Cat variable
+seamonkeys <- c(18, 27, 20, 19, 18, 17, 20, 23, 25, 
+                24, 20, 22, 19, 19, 24, 18, 28, 21, 
+                22, 19, 20, 17, 21, 23, 23, 19, 19, 
+                20, 26, 18, 21, 28, 21, 17, 19, 23, 
+                20, 20, 20, 22, 27, 21, 25, 24, 21, 
+                17, 20, 20, 22, 26)
+
+
+
+# summary
+seamonkeysummary <- summary (seamonkeys)
+
+# standard deviation
+sdsm <- sd(seamonkeys)
+
+# length
+lengthcheck <-length(seamonkeys)
+
+
+# export to text file
+
+sink("seamonkey_report.txt")
+print(lengthcheck)
+print(seamonkeysummary)
+print(sdsm)
+sink();
+
+
+# boxplot, saved to pdf
+
+pdf("seamonkeyboxplot.pdf", width=6, height=6)
+
+boxplot(seamonkeys, ylab="Sea Monkey Length (mm)", 
+        main="Sea Monkey Length Data", col="orange",
+        col.lab="violet", col.main="lightblue")
+
+dev.off();
+
