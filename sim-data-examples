@@ -1,0 +1,41 @@
+
+# Fun with simulated Data
+
+# rnorm, runif, rlnorm, rexp examples
+
+# Rebeca Carrillo-Clayton 
+# RC@RCCLAYTON.COM
+
+
+# set seed to arbitrary number 
+set.seed <- 418742
+
+
+pdf("simdata-plots.pdf", width=6, height=6)
+par(mfrow=c(2,2))
+# Histograms
+# normal 
+normsim.data <-rnorm(25, 20, 2)
+hist(normsim.data, xlab="Normal ", main="Simulated Normal Data (n=25)",
+     col.main="midnightblue", col.lab="orange", col="lightsteelblue1")
+
+# exponential 
+expsim.data <-rexp(30, 0.05)
+hist(expsim.data, xlab="Exponential ", main="Simulated Exponential Data (n = 30)",
+     col.main="black", col.lab="orange", col="orange2")
+
+#uniform
+usim.data <-runif(100, 0, 1)
+hist(usim.data, xlab="Uniform", main="Simulated Uniform Data (n = 100)",
+     col.main="darkgreen", col.lab="orange", col="violet")
+
+#lognormal
+lsim.data <-rlnorm(25,log(27), log(2))
+hist(lsim.data, xlab="Lognormal", main="Simulated Lognormal Data (n=25)",
+     col.main="midnightblue", col.lab="orange", col="limegreen")
+
+
+dev.off();
+
+
+
