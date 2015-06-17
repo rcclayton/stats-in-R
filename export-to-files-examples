@@ -22,7 +22,7 @@ seamonkeys <- c(18, 27, 20, 19, 18, 17, 20, 23, 25,
 
 # some very basic descriptive stats
 
-# five number summary (min, first quartile, median, mean, third quartile, max)
+# five number summary (min, first quartile, median, third quartile, max)
 seamonkeysummary <- summary (seamonkeys)
 
 # standard deviation
