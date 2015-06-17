@@ -1,0 +1,45 @@
+# Least Favorite Graphs/Plots
+
+
+# Pie Charts are awful
+
+# but we can still make them!
+# Rebeca Carrillo
+
+library(plotrix)
+# there are better packages, but this is easy
+
+# super basic plotting. Use ggplot2 for actual plots. Please
+attach(cars)
+
+# basic plotting
+plot(speed, dist, main = "Speed and stopping distances for cars",
+     xlab = "Speed (miles per hour)",
+     ylab = "Stopping distance (feet)")
+abline(lm(dist~speed))
+
+# barplot
+Material <- c("Food Scraps", "Glass", "Metals", "Paper", "Plastics",
+              "Textiles", "Wood", "Yard trimmings", "Other")
+Weight   <- c(25.9, 12.8, 18.0, 86.7, 24.7, 15.8,
+              12.7, 27.7, 7.5)
+Percent  <- c(11.2, 5.5, 7.8, 37.4, 10.7, 6.8, 5.5,
+              11.9, 3.2)
+garbage <- data.frame(Material, Weight, Percent)
+
+barplot(garbage$Weight, main = "American garbage",
+        ylab ="Weight(million tons)",
+        names.arg = (Material),
+        col = rainbow(9))
+
+ # Pie chart (don't make this)
+pielabels <- c("Food Scraps 11.2%", "Glass 5.5%", "Metals 7.8%", "Paper 37.4%", "Plastics 10.7%",
+               "Textiles 6.8%", "Wood 5.5%", "Yard trimmings 11.9%", "Other 3.2%")
+pie3D(garbage$Weight,labels = pielabels, explode=0.1,
+      main="American Garbage ", 
+      r = 1.5)
+
+
+# good ol' box & whiskers
+boxplot(ed~income,data = workers, main="Income distribution with five different income levels", 
+        col = "red", ylab="Income(thousands of dollars")
