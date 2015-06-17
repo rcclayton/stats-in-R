@@ -1,0 +1,46 @@
+# Rebeca Carrillo-Clayton
+# example of rbind, writetable functions
+# this file needs cleaning up
+
+
+# requires (fictional) unemployment data file
+
+library(Ckmeans.1d.dp)
+
+# unemployed men
+unemployed.men <- read.table("unemployment_men.txt", header = T, check.names = F)
+
+mrow <- nrow(unemployed.men)
+mcol <- ncol(unemployed.men)
+
+totals <- colSums(unemployed.men)
+print(totals)
+
+unemployed.men <- rbind(unemployed.men, totals)
+
+marital.status <- c("Married, spouse present", "Widowed, divorced, or separated", "Never married", "Totals")
+unemployed.men <- cbind(marital.status, unemployed.men)
+
+write.table(unemployed.men, "unemployed_men_modified.txt", row.names = F, sep = "/t")
+
+# unemployed.women
+unemployed.women <- read.table("unemployment_women.txt", header = T, check.names = F)
+
+wrow <- nrow(unemployed.women)
+wcol <- ncol(unemployed.women)
+
+totals <- colSums(unemployed.women)
+print(totals)
+
+unemployed.men <- rbind(unemployed.women, totals)
+
+marital.status <- c("Married, spouse present", "Widowed, divorced, or separated", "Never married", "Totals")
+unemployed.women <- cbind(marital.status, unemployed.women)
+
+write.table(unemployed.women, "unemployed_women_modified.txt", row.names = F, sep = "/t")
+
+
+# Clustering
+
+vec <- runif(20, 9, 12)
+CKmeans.1d.dp(vec, 4)
