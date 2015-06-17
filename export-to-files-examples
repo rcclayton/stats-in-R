@@ -6,7 +6,10 @@
 # Boxplot - saved as pdf in working directory
 # Descriptive Stats - saved as text 
 
-# Sea Monkey Cat variable
+# This is a variable we'll use to contain the data from 
+# some fictional lengths of sea monkeys, in mm. we're working with 50
+
+# Sea Monkey data
 seamonkeys <- c(18, 27, 20, 19, 18, 17, 20, 23, 25, 
                 24, 20, 22, 19, 19, 24, 18, 28, 21, 
                 22, 19, 20, 17, 21, 23, 23, 19, 19, 
@@ -15,18 +18,28 @@ seamonkeys <- c(18, 27, 20, 19, 18, 17, 20, 23, 25,
                 17, 20, 20, 22, 26)
 
 
+# Creating Reports
 
-# summary
+# some very basic descriptive stats
+
+# five number summary (min, first quartile, median, mean, third quartile, max)
 seamonkeysummary <- summary (seamonkeys)
 
 # standard deviation
 sdsm <- sd(seamonkeys)
 
-# length
-lengthcheck <-length(seamonkeys)
+
+# number of observations
+# n observations can be verified with the "length" function. We'll print this to a text file, so 
+# we're saving it as a variable.
+
+lengthnum <-length(seamonkeys)
 
 
-# export to text file
+
+# export all the above results to text file with sink ();
+# you could also create a vector of all the variables, 
+# then call print (thevector), if you prefer.
 
 sink("seamonkey_report.txt")
 print(lengthcheck)
@@ -34,6 +47,8 @@ print(seamonkeysummary)
 print(sdsm)
 sink();
 
+
+### Saving Plots with dev.off();
 
 # boxplot, saved to pdf
 
